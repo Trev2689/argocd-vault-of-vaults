@@ -9,7 +9,7 @@ spec:
       repoURL: https://helm.releases.hashicorp.com
       chart: vault
       version: latest
-      targetRevision: main
+      targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: oslo-vault
