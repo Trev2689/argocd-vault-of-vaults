@@ -19,4 +19,4 @@ spec:
       selfHeal: true
   helm:
     values:
-      - helm/hashicorp-vault/copenhagen-vault-values.yaml
+      - https://raw.githubusercontent.com/Trev2689/argocd-vault-of-vaults/main/usw2/usw2-td2-eks/helm/hashicorp-vault/copenhagen-vault-values.yaml
