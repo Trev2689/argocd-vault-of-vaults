@@ -6,7 +6,6 @@ metadata:
 spec:
   project: default
   source:
-    helm:
       repoURL: https://helm.releases.hashicorp.com
       chart: vault
       version: latest
@@ -19,4 +18,4 @@ spec:
       selfHeal: true
   helm:
     values:
-      - https://raw.githubusercontent.com/Trev2689/argocd-vault-of-vaults/main/usw2/usw2-td2-eks/helm/hashicorp-vault/oslo-vault-values.yaml
+      - helm/hashicorp-vault/oslo-vault-values.yaml
