@@ -1,0 +1,18 @@
+global:
+  tlsDisable: true
+injector:
+  enabled: false
+server:
+  # shareProcessNamespace enables process namespace sharing between Vault and the extraContainers
+  # This is useful if Vault must be signaled, e.g. to send a SIGHUP for a log rotation - we are taking advantage of this with extra container vault-cert-reloader to send sighup when certs change. 
+  shareProcessNamespace: true
+  logLevel: "debug"
+  service:
+      enabled: true 
+      clusterIP: None 
+  ha:
+    enabled: true
+    raft:
+      enabled: true
+      setNodeId: true
+        service_registration "kubernetes" {}  
