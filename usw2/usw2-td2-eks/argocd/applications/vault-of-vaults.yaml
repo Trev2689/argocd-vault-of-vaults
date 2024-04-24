@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault-of-vaults
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://ghe.megaleo.com/trevor-doyle/argocd-vault-of-vaults/usw2/anubis-t3-usw2-td2-eks/
+    path: argocd/applications
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  dependencies:
+    # Add dependency for each Vault instance application
+    - source:
+        path: argocd/applications/copenhagen-vault.yaml
+      destination:
+        namespace: copenhagen-vault
+    - source:
+        path: argocd/applications/oslo-vault.yaml
+      destination:
+        namespace: oslo-vault
+
