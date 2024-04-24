@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: oslo-vault
+  namespace: argocd
+spec:
+  project: default
+  source:
+    helm:
+      repositoryURL: https://helm.releases.hashicorp.com
+      chart: vault
+      version: latest
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: oslo-vault  # Unique namespace for oslo-vault
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  helm:
+    values:
+      - helm/hashicorp-vault/oslo-vault-values.yaml
