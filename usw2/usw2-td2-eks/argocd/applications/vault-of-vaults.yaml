@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://ghe.megaleo.com/trevor-doyle/argocd-vault-of-vaults/usw2/anubis-t3-usw2-td2-eks/
+    repoURL: https://github.com/Trev2689/argocd-vault-of-vaults.git
     path: argocd/applications
     targetRevision: main
   destination:
